@@ -1,0 +1,42 @@
+.wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: +420;
+    display: flex;
+    flex-direction: column;
+    background-color: blueviolet;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    background-color: #7e91ffd2;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.wrap div {
+    margin: 20px;
+    font: normal normal 300 25px/47px noteworthy;
+    color: #ffffff;
+}
+
+.wrap div:hover {
+    cursor: pointer;
+    color: #000000;
+}
+
+.hammy {
+    position:absolute;
+    left:calc(50vw - 35px);
+    top: 35px;
+}
+
+.hammy span span, .hammy span span::before, .hammy span span::after{
+    background-color:#ffffff;
+}
+
+.itemActive {
+    color: #000000;
+}

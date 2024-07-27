@@ -1,0 +1,657 @@
+.cont1{
+    margin-top: -50px;
+    margin-left: 37px;
+}
+
+.subHeader {
+    margin-top: 30px;
+    height: 64px;
+    text-align: left;
+    font: normal normal 300 30px/55px noteworthy;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.cont2 {
+    border:0px solid #ffffff;
+    margin:20px 0;
+    display:flex;
+    justify-content: center;
+}
+
+.raidsTable{
+    color:#ffffff;
+    margin: 0 37px;
+    width:100%;
+}
+
+.raidsTable th{
+    cursor: pointer;
+    padding: 10px 25px;
+    text-align: left;
+    font: normal normal bold 35px/69px noteworthy;
+    letter-spacing: 0px;
+    color: #7E91FF;
+}
+
+.raidsTable td{
+    border: none;
+    padding: 0 25px;
+    font: normal normal bold 25px/59px noteworthy;
+}
+
+.raidsTable tbody tr:hover {
+    cursor:pointer;
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+.raidsTable td img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    color: #7E91FF;
+}
+
+.adminPanel {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 420px;
+    width: 600px;
+    background: transparent linear-gradient(111deg, #101112 0%, #131A4A7B 49%, #101112 100%) 0% 0% no-repeat padding-box;
+    border: 2px solid #7E91FF;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.adminInputs1 {
+    width:100%;
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.adminInputs2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.adminInput1 {
+    color:#ffffff;
+    text-align: center;
+    flex-direction: column;
+    width:45%;
+    margin-bottom: 20px;
+}
+
+.adminInput2 {
+    text-align: center;
+    flex-direction: column;
+    width:12%;
+    min-width: 78px;
+    margin-bottom: 20px;
+    margin: 2.5px;
+}
+
+.adminInput2 div{
+    font: normal normal bold 16px noteworthy;
+    letter-spacing: 1px;
+    color: #ffffff;
+    width: 100%;
+}
+
+.adminInput1 div{
+    letter-spacing: 1px;
+    font: normal normal bold 16px noteworthy;
+    color: #ffffff;
+    width: 100%;
+}
+
+.adminInput1 input {
+    color: #ffffff;
+    text-align: center;
+    height:30px;
+    background-color: #00000080;
+    border: 2px solid #7E91FF;
+    border-radius: 5px;
+    flex-direction: column;
+    width:100%;
+}
+
+.adminInput2 input {
+    color: #ffffff;
+    text-align: center;
+    height:30px;
+    background-color: #00000080;
+    border: 2px solid #7E91FF;
+    border-radius: 5px;
+    flex-direction: column;
+    width:100%;
+}
+
+.adminInput1 input::placeholder {
+    color: #979797;
+}
+
+.adminInput2 input::placeholder {
+    color: #979797;
+}
+
+.adminPanelButton:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.adminPanelButton {
+    opacity: 0.8;
+    background-color: #101112;
+    font: normal normal 300 25px/47px noteworthy;
+    letter-spacing: 0px;
+    color: #EFEFEF;
+    border: 2px solid #7E91FF;
+    border-radius: 20px;
+    margin: 15px;
+    width:30%;
+}
+
+.inactive {
+    background-color: #101112;
+    font: normal normal 300 25px/47px noteworthy;
+    letter-spacing: 0px;
+    color: #EFEFEF;
+    border: 2px solid #7E91FF;
+    border-radius: 20px;
+    margin: 15px;
+    width:30%;
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+.entriesWrap {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.entriesCont {
+    overflow: hidden;
+    max-width: 95vw;
+    margin: 30px;
+    display:flex;
+    flex-direction: column;
+    background: transparent linear-gradient(111deg, #101112 0%, #131A4A7B 49%, #101112 100%) 0% 0% no-repeat padding-box;
+    border: 2px solid #7E91FF;
+    border-radius: 15px;
+}
+
+.target {
+    margin: 10px 25px;
+    font: normal normal bold 35px Noteworthy;
+    color: #ffffff;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.target div:first-child {
+    display: inline-flex;
+}
+
+.targetValue {
+    font: normal normal bold 35px Noteworthy;
+    color: #F79D03;
+}
+
+.entriesItems {
+    position: relative;
+    max-width: 1400px;
+    flex-wrap: wrap;
+    flex: 1 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.itemCont {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    margin: 10px;
+    height: 420px;
+    background: #404FCE 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 15px;
+}
+
+.itemCont:hover {
+    cursor: pointer;
+    border: 1px solid #F79D03;
+}
+
+.quantity {
+    text-align: center;
+    font: normal normal bold 25px Noteworthy;
+    letter-spacing: 0px;
+    color: #7E91FF;
+}
+
+.quantityLabel {
+    margin-top: -35px;
+    margin-left: 10px;
+    position: relative;
+    width:100%;
+    font: normal normal bold 18px Noteworthy;
+    letter-spacing: 0px;
+    color: #ffffff;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.itemName {
+    margin-left: 10px;
+    margin-top: -50px;
+    font: normal normal 300 28px Noteworthy;
+    letter-spacing: 0px;
+    color: #E6E6E6;
+}
+
+.price {
+    margin-top: -30px;
+    margin-left: 10px;
+    font: normal normal 300 16px Noteworthy;
+    letter-spacing: 0px;
+    color: #E6E6E6;
+}
+
+.entryAmount {
+    margin-left: 10px;
+    font: normal normal 300 16px Noteworthy;
+    letter-spacing: 0px;
+    color: #E6E6E6;
+}
+
+.buyModal {
+    height: 356px;
+    max-width: 95vw;
+    margin: 20px;
+    padding:15px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: transparent linear-gradient(111deg, #101112 0%, #131A4A7B 49%, #101112 100%) 0% 0% no-repeat padding-box;
+    border: 2px solid #7E91FF;
+    border-radius: 15px;
+}
+
+.remaining {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: #ffffff;
+    margin: 10px;
+}
+
+.buyModalButton {
+    text-align: center;
+    width: 150px;
+    opacity: 0.75;
+    background-color: #101112;
+    font: normal normal 300 22px noteworthy;
+    letter-spacing: 0px;
+    color: #EFEFEF;
+    border: 2px solid #7E91FF;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.buyModalButton:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.itemWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.invertedBuyModalButton {
+    text-align: center;
+    width: 150px;
+    opacity: 0.75;
+    font: normal normal 300 22px noteworthy;
+    letter-spacing: 0px;
+    background: #ECF1FB 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    color: #162480;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.invertedBuyModalButton:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.buyCont {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    margin: 10px;
+    height: 300px;
+    background: #404FCE 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 15px;
+}
+
+.buyInfoRow {
+    padding-right:15px;
+    padding-left:15px;
+    width: calc(100% - 30px);
+    display: flex;
+}
+
+.buyRow {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.buyInfoRow div:first-child {
+    width:50%;
+    font: normal normal bold 20px Noteworthy;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.buyInfoRow div:nth-child(2) {
+    width:50%;
+    font: normal normal bold 25px Noteworthy;
+    letter-spacing: 0px;
+    color: #7E91FF;
+}
+
+.socialsTargetCont {
+    text-align: center;
+    height: 356px;
+    margin: 20px;
+    padding:15px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: transparent linear-gradient(111deg, #101112 0%, #131A4A7B 49%, #101112 100%) 0% 0% no-repeat padding-box;
+    border: 2px solid #7E91FF;
+    border-radius: 15px;
+}
+
+.socialsTargetCont {
+    text-align: center;
+    height: 356px;
+    margin: 20px;
+    padding:15px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: transparent linear-gradient(111deg, #101112 0%, #131A4A7B 49%, #101112 100%) 0% 0% no-repeat padding-box;
+    border: 2px solid #7E91FF;
+    border-radius: 15px;
+}
+
+.socialsTargetCont div div:first-child {
+    font: normal normal bold 20px Noteworthy;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.socialsTargetCont div div:nth-child(2) {
+    margin-top: 10px;
+    font: normal normal bold 25px Noteworthy;
+    letter-spacing: 0px;
+    color: #7E91FF;
+}
+
+.socialDisclaim {
+    font-weight: bolder;
+    font-size: 12px;
+    color: #c41c1c;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.socialCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.socialCol a {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #7E91FF;
+    border-radius: 10px;
+}
+
+.buyInfoRow input {
+    padding-left: 5px;
+    border: 1px solid #7E91FF;
+    color: #7E91FF;
+    background-color: #ffffff00;
+}
+
+.gameOverCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:95vw;
+    max-width: 600px;
+}
+
+.winner {
+    color:#F79D03;
+    font: normal normal bold 16px Noteworthy;
+}
+
+.wonAmount {
+    color:#F79D03;
+    font: normal normal bold 20px Noteworthy;
+}
+
+.header {
+    margin: 10px;
+    font: normal normal bold 35px Noteworthy;
+    color: #ffffff;
+}
+
+.bigButton {
+    margin: 15px;
+    width: calc(100% - 30px);
+    color:#ffffff;
+    font: normal normal bold 25px Noteworthy;
+    border: 2px solid #7E91FF;
+    border-radius: 18px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigButton:hover {
+    background: #ECF1FB 0% 0% no-repeat padding-box;
+    border: 2px solid #707070;
+    color: #162480;
+    cursor:pointer;
+}
+
+.contractFooter {
+    position: fixed;
+    bottom: 0;
+    opacity:.25;
+    border-top-left-radius: 5px;
+    padding: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    color:#000000;
+    background-color: #7E91FF;;
+    right: 0;
+}
+
+.contractFooter:hover {
+    cursor: pointer;
+    opacity:1;
+}
+
+.adminBalance {
+    color:#ffffff;
+    font: normal normal bold 25px Noteworthy;
+    display:flex;
+}
+
+.adminBalanceValue {
+    color:#F79D03;
+}
+
+.adminBalance div {
+    margin-left: 30px;
+}
+
+.adminInput3 {
+    margin: 5px;
+    width: 40%;
+    min-width: 184px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.adminInput3 div:first-child {
+    text-align: center;
+    margin: 0 10px;
+    font: normal normal bold 16px Noteworthy;
+    color: #ffffff;
+}
+
+.adminInput3 div:nth-child(3) {
+    color: #ffffff;
+    font: normal normal bold 14px Noteworthy;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 5px;
+    width: 100%;
+    border:1px solid #7E91FF;
+    border-radius: 5px;
+}
+
+.adminInput3 div:nth-child(3):hover {
+    background: #ECF1FB 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    color: #162480;
+    cursor:pointer;
+}
+
+.adminInput3 input{
+    font-size: 10px;
+    font-family: 'Courier New', Courier;
+    text-align: center;
+    color:#ffffff;
+    border:1px solid #7E91FF;
+    background-color: #00000063;
+    height: 25px;
+    width: 100%;
+}
+
+.adminInputs3 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1045px) {
+    .adminInput3 div:first-child {
+        margin: 10px;
+        font: normal normal bold 16px Noteworthy;
+    }
+    .buyModal {
+        height: auto;
+    }
+    .target {
+        font: normal normal bold 18px Noteworthy;
+    }
+    .targetValue {
+        font: normal normal bold 16px Noteworthy;
+    }
+    .socialCol {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .socialsTargetCont {
+        flex-direction: row;
+        width:95vw;
+        height: 100%;
+    }
+    .cont1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: -10px;
+        margin-left: 0;
+    }
+    .subHeader {
+        text-align: center;
+        font: normal normal 300 16px/55px noteworthy;
+    }
+    .raidsTable{
+        color:#ffffff;
+        margin: 50px 0;
+        width:100%;
+    }
+    .raidsTable th{
+        padding: 10px 5px;
+        text-align: left;
+        font: normal normal bold 16px/69px noteworthy;
+        letter-spacing: 0px;
+        color: #7E91FF;
+        line-height: 20px;
+    }
+    .raidsTable th:first-child{
+        display:none
+    }
+    .raidsTable td:first-child{
+        display:none
+    }
+    .raidsTable td{
+        border: none;
+        padding: 0 5px;
+        font: normal normal bold 12px/59px noteworthy;
+    }
+    .adminPanel {
+        max-width: 96vw;
+        margin-top: 0;
+    }
+    
+  }

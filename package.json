@@ -1,0 +1,25 @@
+{
+  "name": "riky-raid",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@web3modal/ethers": "^5.0.6",
+    "animate.css": "^4.1.1",
+    "ethers": "^6.13.1",
+    "moment": "^2.30.1",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "twitter-api-v2": "^1.17.2"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5"
+  }
+}

@@ -1,8 +1,10 @@
+import Image from "next/image"
+
 const MasterLoadingScreen = () => {
 
     return(
         <div className="loading">
-            <img alt={"rikyRunning"} src={"/images/rikyRunning.gif"} />
+            <Image alt={"rikyRunning"} width={200} height={200} src={"/images/rikyRunning.gif"} />
             <div className="loader"></div>
         </div>
     )

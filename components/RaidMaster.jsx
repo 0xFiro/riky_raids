@@ -1,13 +1,18 @@
 import styles from "@/styles/Raids.module.css"
 import config from "@/rikyRaidConfig.json"
 import ABI from "@/functions/ABI.json"
-import { JsonRpcProvider, BrowserProvider, Contract, formatEther } from "ethers";
+import { JsonRpcProvider, BrowserProvider, Contract, formatEther, isAddress } from "ethers";
 import { useWeb3ModalProvider } from "@web3modal/ethers/react";
 import { useEffect, useState } from "react";
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { shortenEthAddy } from "@/functions/shortenEthAddy";
 
 const RaidMaster = ({setLoading,alert}) => {
 
+    const {width} = useWindowSize()
     const [raidMasterStuff,setRaidMasterStuff] = useState([])
+    const [ownerInput,setOwnerInput] = useState("")
+    const [inputs,setInputs] = useState({1:"",2:"",3:""})
     const {walletProvider} = useWeb3ModalProvider();
 
     const labels = [
@@ -15,6 +20,13 @@ const RaidMaster = ({setLoading,alert}) => {
         "MARKETING ADDRESS",
         "STAKING ADDRESS"
     ]
+
+    const handleInputs = (type, value) => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            [type]: value
+        }));
+    };
 
     const allocations = async () => {
         try{
@@ -51,10 +63,55 @@ const RaidMaster = ({setLoading,alert}) => {
         }
     }
 
+    const updateAddy = async (type) => {
+        if(!isAddress(inputs[type])){
+            alert("error","Invalid ethereum address")
+            return
+        }
+        try{
+            const provider = new BrowserProvider(walletProvider);
+            const signer = await provider.getSigner()
+            const raidMasterContract = new Contract(config.raidMaster,ABI.raidMaster,signer)
+            const tx = await raidMasterContract.updateAddress(type,inputs[type])
+            setLoading(true)
+            await tx.wait()
+            } catch (e) {
+                setLoading(false)
+                alert("error",e.reason)
+                console.log(e)
+            } finally {
+                setInputs({1:"",2:"",3:""})
+                getRaidMasterStuff()
+                setLoading(false)
+            }
+    }
+
+    const updateRaidMasterWallet = async (addy) => {
+        if(!isAddress(addy)){
+            alert("error","Invalid ethereum address")
+            return
+        }
+        try{
+            const provider = new BrowserProvider(walletProvider);
+            const signer = await provider.getSigner()
+            const raidMasterContract = new Contract(config.raidMaster,ABI.raidMaster,signer)
+            const tx = await raidMasterContract.transferOwnership(addy)
+            setLoading(true)
+            await tx.wait()
+            } catch (e) {
+                setLoading(false)
+                alert("error",e.reason)
+                console.log(e)
+            } finally {
+                setOwnerInput("")
+                getRaidMasterStuff()
+                setLoading(false)
+            }
+    }
+
     useEffect(() => {
         getRaidMasterStuff()
     }, [])
-    
 
     return(
         <div className={styles.cont2}>
@@ -66,16 +123,19 @@ const RaidMaster = ({setLoading,alert}) => {
                     <div className={styles.adminInputs3}>
                     <div className={styles.adminInput3}>
                                 <div>Transfer Ownership</div>
-                                <input placeholder={raidMasterStuff[4]} />
-                                <div>Write</div>
+                                <input onChange={(e)=>setOwnerInput(e.target.value)} value={ownerInput} placeholder={width < 1045 ? shortenEthAddy(raidMasterStuff[4]) : raidMasterStuff[4]} />
+                                <div onClick={()=>updateRaidMasterWallet(ownerInput)}>Write</div>
                             </div>
                         {
                             labels.map((e,index)=>{
+                                const type = e === "ORACLE ADDRESS" ? 3 :
+                                e === "MARKETING ADDRESS" ? 1 :
+                                e === "STAKING ADDRESS" ? 2 : null
                             return (
                             <div className={styles.adminInput3}>
                                 <div>{e}</div>
-                                <input placeholder={raidMasterStuff[index+1]} />
-                                <div>Write</div>
+                                <input onChange={(e)=>handleInputs(type,e.target.value)} value={inputs[type]} placeholder={width < 1045 ? shortenEthAddy(raidMasterStuff[index+1]) : raidMasterStuff[index+1]} />
+                                <div onClick={()=>updateAddy(type)}>Write</div>
                             </div>
                             )
                             })

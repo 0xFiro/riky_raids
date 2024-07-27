@@ -53,7 +53,7 @@ const RaidzTable = () => {
                 <tbody>
                     {sortedRaids.map((e, index) => (
                         <tr onClick={() => router.push(`/${e.id}`)} key={index}>
-                            <td><Image src={e.imageUrl} width={50} height={50} /></td>
+                            <td><Image alt={"raidID"+index} src={e.imageUrl} width={50} height={50} /></td>
                             <td>{e.project}</td>
                             <td>{e.stealValue}</td>
                             <td>{e.collectionSize}</td>

@@ -132,7 +132,7 @@ const RaidMaster = ({setLoading,alert}) => {
                                 e === "MARKETING ADDRESS" ? 1 :
                                 e === "STAKING ADDRESS" ? 2 : null
                             return (
-                            <div className={styles.adminInput3}>
+                            <div key={index} className={styles.adminInput3}>
                                 <div>{e}</div>
                                 <input onChange={(e)=>handleInputs(type,e.target.value)} value={inputs[type]} placeholder={width < 1045 ? shortenEthAddy(raidMasterStuff[index+1]) : raidMasterStuff[index+1]} />
                                 <div onClick={()=>updateAddy(type)}>Write</div>

@@ -16,7 +16,7 @@ const Index = ({setLoading,alert}) => {
         <Wrapper>
             <div className={styles.cont1}>
                 <div className={styles.contCol}>
-                    <Image src={"/images/riky.png"} width={400} height={165} />
+                    <Image alt={"rikytext"} src={"/images/riky.png"} width={400} height={165} />
                     <div className={styles.subHead}>
                         The Brand and marketing token on Base.
                     </div>
@@ -25,7 +25,7 @@ const Index = ({setLoading,alert}) => {
                     </a>
                 </div>
                 <div className={styles.contCol}>
-                    <Image src={"/images/bigriky.jpg"} width={641} height={644} />
+                    <Image alt={"bigriky"} src={"/images/bigriky.jpg"} width={641} height={644} />
                 </div>
             </div>
             <HomeCards />

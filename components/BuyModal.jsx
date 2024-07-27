@@ -121,9 +121,9 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
                 <div>
                     <div>Target Socials</div>
                     <div className={styles.socialCol}>
-                        {twitters.length > 0 && twitters.map((e)=>{
+                        {twitters.length > 0 && twitters.map((e,index)=>{
                             return(
-                                <a target={"_blank"} href={e}><Image src={"/images/twitter.svg"} width={40} height={40} /></a>
+                                <a key={"twitter"+index} target={"_blank"} href={e}><Image alt={"twittersvg"} src={"/images/twitter.svg"} width={40} height={40} /></a>
                             )
                         })}
                     </div>

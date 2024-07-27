@@ -25,7 +25,7 @@ const Index = ({setLoading,alert}) => {
                     </a>
                 </div>
                 <div className={styles.contCol}>
-                    <Image alt={"bigriky"} src={"/images/bigriky.jpg"} width={641} height={644} />
+                    <Image alt={"bigriky"} src={"/images/bigRiky.jpg"} width={641} height={644} />
                 </div>
             </div>
             <HomeCards />

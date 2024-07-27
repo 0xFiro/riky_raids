@@ -8,7 +8,7 @@ const HomeCards = () => {
         {
             homeCards.map((e,index)=>{
                 return(
-                <div alt={"card"+index} className={styles.card}>
+                <div key={index} className={styles.card}>
                     <div className={styles.cardTitle}>{e.title}</div>
                     <div className={styles.cardContent}>
                         {e.content}

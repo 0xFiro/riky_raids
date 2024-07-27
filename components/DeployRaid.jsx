@@ -47,15 +47,16 @@ const DeployRaid = ({setLoading,alert}) => {
 
     const deployRaid = async () => {
       try{
-        setLoading(true)
         const provdier = new BrowserProvider(walletProvider)
         const signer = await provdier.getSigner()
         const contract = new Contract(config.raidMaster,ABI.raidMaster,signer)
         const tx = await contract.createRaid(parseEther(inpt[0]),inpt[1],inpt[2],inpt[3],[inpt[4],inpt[5],inpt[6],inpt[7],inpt[8]],byteCode.raid,[inpt[9],inpt[10]])
         const result = await tx.wait()
+        setLoading(true)
         //console.log(result.logs[0].args[0])
         router.push(`/${parseInt(result.logs[0].args[0])}`)
       } catch (e) {
+        setLoading(false)
         alert("error",e.reason)
         console.log(e)
       }

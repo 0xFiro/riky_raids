@@ -575,7 +575,7 @@
 .adminInput3 input{
     font-size: 10px;
     font-family: 'Courier New', Courier;
-    text-align: center;
+    text-align: left;
     color:#ffffff;
     border:1px solid #7E91FF;
     background-color: #00000063;
@@ -653,5 +653,7 @@
         max-width: 96vw;
         margin-top: 0;
     }
-    
+    .adminInput3 input{
+        text-align: center;
+    }
   }

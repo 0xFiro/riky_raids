@@ -28,6 +28,8 @@ const metadata = {
   icons: ['']
 }
 
+const networks = { base, baseSepolia };
+
 const ethersConfig = defaultConfig({
   metadata,
   auth: {
@@ -47,7 +49,7 @@ const ethersConfig = defaultConfig({
 createWeb3Modal({
   allWallets: 'HIDE',
   ethersConfig,
-  chains: [[config.network]],
+  chains: [networks[config.network]],
   projectId,
   enableAnalytics: true, 
   enableOnramp: true 

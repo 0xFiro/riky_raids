@@ -3,7 +3,7 @@
     "raidMaster"            :   "0x39f41F4dcede0aCECF36D0De88416B16E0921f6e",
     "network"               :   "base",
     "publicRpc"             :   "https://base-mainnet.g.alchemy.com/v2/yHbkDlo13g2QToEEwryQl9es2R16i_1R",
-    "blockExplorer"         :   "https://base.blockscout.com/address/0x729031B3995538DDF6B6BcE6E68D5D6fDEb3CCB5",
+    "blockExplorer"         :   "https://base.blockscout.com",
     "twitterBearerToken"    :   "**TWITTER API (not required)",
     "orcalePrivateKey"      :   "**TWITTER API (not required)"
 }

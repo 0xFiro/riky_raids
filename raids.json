@@ -1,11 +1,11 @@
 [
     {
         "id": 3,
-        "project": "BRETT 2.0",
-        "stealValue": "300k BRETT",
+        "project": "RIKY",
+        "stealValue": "1k RIKY",
         "collectionSize": 55,
         "status": "Ongoing",
-        "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x1a475d06d967aeb686c98de80d079d72097aeacf.png"
+        "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x729031b3995538ddf6b6bce6e68d5d6fdeb3ccb5.png"
     },
     {
         "id": 2,
@@ -16,7 +16,7 @@
         "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x0d97f261b1e88845184f678e2d1e7a98d9fd38de.png"
     },
     {
-        "id": 2,
+        "id": 1,
         "project": "Based Fellas",
         "stealValue": "600k FELLA",
         "collectionSize": 130,

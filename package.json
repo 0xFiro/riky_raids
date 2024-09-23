@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@web3modal/ethers": "^5.0.6",
+    "@web3modal/ethers": "^5.1.6",
     "animate.css": "^4.1.1",
     "ethers": "^6.13.1",
     "moment": "^2.30.1",

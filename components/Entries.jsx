@@ -97,14 +97,15 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
     };
     
 
-    const openBuyModal = (nftInfo) => {
+    const openBuyModal = (nftInfo,id) => {
+        let tempobj = nftInfo
+        tempobj.id = id + 1
         if(isConnected){
-            setBuyInfo(nftInfo)
+            setBuyInfo(tempobj)
             setBuying(true)
         } else {
             alert("info","Please connect a wallet")
         }
-
     }
 
     const pullEndblockDiff = async () => {
@@ -157,7 +158,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
                             tempOBJ.raidContract = address
                             return(
                             <div key={index} className={styles.itemWrap}>
-                                <div onClick={()=>openBuyModal(tempOBJ)} className={styles.itemCont}>
+                                <div onClick={()=>openBuyModal(tempOBJ,index)} className={styles.itemCont}>
                                     <Image alt={"nft"+index} src={match.image} width={250} height={250} />
                                     <div className={styles.itemName}>{match.name}</div>
                                     <div className={styles.price}>{parseInt(formatEther(match.price))} RIKY</div>

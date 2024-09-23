@@ -21,6 +21,7 @@ contract Raid is ReentrancyGuard, ERC1155 {
     address public winner;
     uint256 public winningTicket;
     uint256 public ticketsPurchased;
+    uint256 public totalWeight;
     string private baseUri;
     string[2] public twitters;
     IGameMasterContract public gameMasterContract;
@@ -31,6 +32,7 @@ contract Raid is ReentrancyGuard, ERC1155 {
         address holder;
         string xHandle;
         bool socialCheck;
+        uint256 weight;
     }
 
     struct TokenInfo {
@@ -81,9 +83,13 @@ contract Raid is ReentrancyGuard, ERC1155 {
         uint256 totalCost = ticketPrice * batchSize;
         require(rikyToken.transferFrom(msg.sender, address(this), totalCost), "RIKY transfer failed");
 
+        // Assign weight based on batch size with .5 increments
+        uint256 weight = 10 + (batchSize - 1) * 5; 
+
         for (uint256 i = 0; i < batchSize; i++) {
             ticketsPurchased++;
-            tickets[ticketsPurchased] = TicketData(batchSize,msg.sender, xHandle, false);
+            tickets[ticketsPurchased] = TicketData(batchSize, msg.sender, xHandle, false, weight);
+            totalWeight += weight;
             emit TicketPurchased(msg.sender, ticketsPurchased, xHandle);
         }
 
@@ -96,8 +102,17 @@ contract Raid is ReentrancyGuard, ERC1155 {
         require(block.number > endBlock, "Raid is still ongoing");
         require(winner == address(0), "Raid already ended");
 
-        winningTicket = uint256(blockhash(endBlock)) % ticketsPurchased + 1;
-        winner = tickets[winningTicket].holder;
+        uint256 randomNumber = uint256(blockhash(endBlock)) % totalWeight + 1;
+        uint256 cumulativeWeight = 0;
+
+        for (uint256 i = 1; i <= ticketsPurchased; i++) {
+            cumulativeWeight += tickets[i].weight;
+            if (randomNumber <= cumulativeWeight) {
+                winningTicket = i;
+                winner = tickets[i].holder;
+                break;
+            }
+        }
 
         emit RaidEnded(winner, assetAddress);
     }

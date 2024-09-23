@@ -54,7 +54,7 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
             const provider = new BrowserProvider(walletProvider);
             const signer = await provider.getSigner()
             const raidContract = new Contract(nftInfo.raidContract,ABI.raid,signer)
-            const purchase = await raidContract.buyBatch(parseInt(nftInfo.qty),xInput)
+            const purchase = await raidContract.buyBatch(parseInt(nftInfo.id),xInput)
             setLoading(true)
             await purchase.wait()
             } catch (e) {

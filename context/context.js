@@ -43,7 +43,7 @@ const ethersConfig = defaultConfig({
   enableInjected: true,
   enableCoinbase: true, 
   rpcUrl: '...',
-  defaultChainId: 84532
+  defaultChainId: networks[config.network].chainId
 })
 
 createWeb3Modal({

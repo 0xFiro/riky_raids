@@ -2,7 +2,12 @@
     "rikyAddress"           :   "0x729031B3995538DDF6B6BcE6E68D5D6fDEb3CCB5",
     "raidMaster"            :   "0x750422b4D10370b8Dcd8dF80CA55abb640fb77b5",
     "network"               :   "base",
+<<<<<<< HEAD
     "publicRpc"             :   "https://base-mainnet.g.alchemy.com/v2/yHbkDlo13g2QToEEwryQl9es2R16i_1R",
+=======
+    "chainId"               :   8453,
+    "publicRpc"             :   "https://api.developer.coinbase.com/rpc/v1/base/YOURNODEKEY",
+>>>>>>> upstream/main
     "blockExplorer"         :   "https://base.blockscout.com",
     "twitterBearerToken"    :   "**TWITTER API (not required)",
     "orcalePrivateKey"      :   "**TWITTER API (not required)"

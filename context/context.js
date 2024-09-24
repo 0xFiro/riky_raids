@@ -5,54 +5,44 @@ import config from "@/rikyRaidConfig.json"
 
 const projectId = '1e9b23d2568da825ea32c519f7681ee1'
 
-const base = {
-  chainId: 8453,
-  name: 'Base Mainnet',
+const defaultChain = {
+  chainId: config.chainId,
+  name: config.chainName,
   currency: 'ETH',
-  explorerUrl: config.blockExplorer,
-  rpcUrl: config.publicRpc
-}
-
-const baseSepolia = {
-  chainId: 84532,
-  name: 'Base Sepolia',
-  currency: 'ETH',
-  explorerUrl: config.blockExplorer,
-  rpcUrl: config.publicRpc
+  explorerUrl: config.explorer,
+  rpcUrl: config.rpc
 }
 
 const metadata = {
   name: "Riky Raid",
   description: "An onchain raid.",
-  url: '',
-  icons: ['']
+  url: 'https://app.rikytheraccoon.xyz',
+  icons: ['https://rikytheraccoon.xyz/Riky_files/logo.png']
 }
-
-const networks = { base, baseSepolia };
 
 const ethersConfig = defaultConfig({
   metadata,
-  auth: {
-    email: false, 
-    socials: ['google', 'apple'],
-    showWallets: true,
-    walletFeatures: true
-  },
-  coinbasePreference: "all",
-  enableEIP6963: true,
-  enableInjected: true,
-  enableCoinbase: true, 
+  enableEIP6963: true, 
+  enableInjected: true, 
+  enableCoinbase: true,
   rpcUrl: '...',
-  defaultChainId: networks[config.network].chainId
+  defaultChainId: config.chainId,
+  auth: {
+    email: false,
+    socials: [],
+    showWallets: true,
+    walletFeatures: true 
+  },
+  coinbasePreference: 'all'
 })
 
 createWeb3Modal({
-  allWallets: 'HIDE',
   ethersConfig,
-  chains: [networks[config.network]],
+  chains: [defaultChain],
   projectId,
-  enableAnalytics: true, 
-  enableOnramp: true 
+  enableAnalytics: true,
+  enableOnramp: true,
+  allWallets:"SHOW"
 })
 
 export function Web3Modal({ children }) {

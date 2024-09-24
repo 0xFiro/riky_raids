@@ -2,6 +2,7 @@
     "rikyAddress"           :   "0x729031B3995538DDF6B6BcE6E68D5D6fDEb3CCB5",
     "raidMaster"            :   "0x750422b4D10370b8Dcd8dF80CA55abb640fb77b5",
     "network"               :   "base",
+    "chainId"               :   8453,
     "publicRpc"             :   "https://api.developer.coinbase.com/rpc/v1/base/YOURNODEKEY",
     "blockExplorer"         :   "https://base.blockscout.com",
     "twitterBearerToken"    :   "**TWITTER API (not required)",

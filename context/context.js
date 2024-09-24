@@ -3,7 +3,7 @@
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers/react'
 import config from "@/rikyRaidConfig.json"
 
-const projectId = '1e9b23d2568da825ea32c519f7681ee1'
+const projectId = '9998dba6b076a8ebbf7dbba1e6d73614'
 
 const defaultChain = {
   chainId: config.chainId,

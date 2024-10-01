@@ -1,10 +1,10 @@
 {
-    "rikyAddress"           :   "0x729031B3995538DDF6B6BcE6E68D5D6fDEb3CCB5",
-    "raidMaster"            :   "0xd8FF1BDAc86D6a608E01aC0c046d453eBE65A0c4",
+    "rikyAddress"           :   "0xc933c49B198dEEB58EC9411ae91B704599c39a5f",
+    "raidMaster"            :   "0x84314baF9A28a6f1A715655468442F9087902Bcb",
     "network"               :   "base",
-    "publicRpc"             :   "https://base-mainnet.g.alchemy.com/v2/yHbkDlo13g2QToEEwryQl9es2R16i_1R",
-    "chainId"               :   8453,
-    "blockExplorer"         :   "https://base.blockscout.com",
+    "publicRpc"             :   "https://sepolia.base.org",
+    "chainId"               :   84532,
+    "blockExplorer"         :   "https://base-sepolia.blockscout.com/",
     "twitterBearerToken"    :   "**TWITTER API (not required)",
     "orcalePrivateKey"      :   "**TWITTER API (not required)"
 }

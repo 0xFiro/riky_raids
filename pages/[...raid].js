@@ -42,15 +42,39 @@ const Raid = ({setLoading,alert,loading}) => {
         const lootContract = new Contract(assetAddy,ABI.erc20,provider)
         const pot = await lootContract.balanceOf(address)
         setLoot(pot)
+        console.log('pot: ' + pot)
+    } catch (e) {
+        console.log(e)
+    }
+}
+const getAvailableTickets = async (address) => {
+    console.log(address)
+    try{
+
+        // const provider = new BrowserProvider(walletProvider);
+        // const signer = await provider.getSigner()
+        // const raidContract = new Contract(raidAddress,ABI.raid,signer)
+        // // const tx = await raidContract.verifySocials(ticket[4])
+        // const info = await raidContract.getTokenInfos(address)
+        // // setLoading(true)
+        // await info.wait()
+
+        // const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+        // const provider = new JsonRpcProvider(`${baseUrl}/api/rpc`);
+        // const raidContract = new Contract(address,ABI.raid,provider)
+
+
+        console.log('info--')
     } catch (e) {
         console.log(e)
     }
 }
 
   useEffect(() => {
-    isAddress(address) && getPot(address) 
+    isAddress(address) && getPot(address)
+      getAvailableTickets()
   }, [address])
-  
+
 
   useEffect(() => {
     setLoading(true)

@@ -13,7 +13,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
     const { isConnected } = useWeb3ModalAccount()
 
     const [baseUri,setBaseUri] = useState("")
-    const [nftData,setNftData] = useState([0,0,0,0,0])
+    const [nftData,setNftData] = useState([])
     const [endBlock,setEndblock] = useState(0)
     const [endBlockTimeRemaining, setEndBlockTimeRemaining] = useState("--");
 
@@ -34,6 +34,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
         setEndblock(parseInt(endBlock))
         setRaidedAsset(assetName)
         await getNftData(raidAddress)
+        await getTicketPurchased(raidAddress)
         setAddress(raidAddress)
         setBaseUri(uri)
         } catch (e) {
@@ -48,10 +49,25 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
             const raidContract = new Contract(contract, ABI.raid, provider);
             const data = await raidContract.getTokenInfos();
             getMeta(data)
+
+            console.log('nftdata--',data)
         } catch (e) {
             console.log(e);
         }
     };
+
+    const getTicketPurchased = async (contract) => {
+        try {
+            const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+            const provider = new JsonRpcProvider(`${baseUrl}/api/rpc`);
+            const raidContract = new Contract(contract, ABI.raid, provider);
+            const data = await raidContract.ticketsPurchased();
+            console.log('tickets purchased data--',data)
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
 
     const updateQty = async () => {
         try {
@@ -71,7 +87,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
 
             const meta = await Promise.all(fetchPromises);
             setNftData(meta);
-            
+
         } catch (e) {
             console.log(e);
         }
@@ -95,7 +111,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
             setTimeout(()=> setLoading(false),1000)
         }
     };
-    
+
 
     const openBuyModal = (nftInfo,id) => {
         let tempobj = nftInfo
@@ -139,17 +155,32 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
     useEffect(() => {
         !loading && isAddress(address) && updateQty()
     }, [loading])
-    
+
 
     useEffect(() => {
         getURI()
-    }, [])
-    
 
+    }, [])
+
+
+    const calculateTotalQty = (items) => {
+        let totalQty = 0n;
+        for (const item of items) {
+            if (item.qty !== undefined && item.qty !== null) {
+                try {
+                    // Convert qty to BigInt if it's not already
+                    totalQty += BigInt(item.qty);
+                } catch (error) {
+                    console.error(`Invalid qty value for item ${item.name}:`, item.qty);
+                }
+            }
+        }
+        return BigInt(totalQty).toLocaleString();
+    };
     return(
         <div className={buying ? "hidden" : styles.entriesWrap}>
             <div className={styles.entriesCont}>
-            {endBlockTimeRemaining !== "Time's up!" &&<div className={styles.target}><div>Target -&nbsp;<div className={styles.targetValue}>{raidedAsset}</div></div><div>Ends -&nbsp;<div className={styles.targetValue}>{endBlockTimeRemaining}</div></div></div>}
+            {endBlockTimeRemaining !== "Time's up!" &&<div className={styles.target}><div>Target -&nbsp;<div className={styles.targetValue}>{raidedAsset}</div><div className={styles.ticketsAvailable}>{calculateTotalQty(nftData)}/20 Tickets Available</div></div><div>Ends -&nbsp;<div className={styles.targetValue}>{endBlockTimeRemaining}</div></div></div>}
                 <div className={styles.entriesItems}>
                     {baseUri !== "" && address !== "" && nftData[0] !== 0 && endBlockTimeRemaining !== "Time's up!" ?
                         nftAmount.map((e,index)=>{
@@ -168,7 +199,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
                             </div>
                             )
                           }) :
-                    baseUri !== "" && address !== "" && nftData[0] !== 0 && endBlockTimeRemaining === "Time's up!" ? 
+                    baseUri !== "" && address !== "" && nftData[0] !== 0 && endBlockTimeRemaining === "Time's up!" ?
                     <GameOver setLoading={setLoading} loot={loot} nftData={nftData} alert={alert} raidedAsset={raidedAsset} raidAddress={address} /> : null
                     }
                     <div className={styles.break}></div>

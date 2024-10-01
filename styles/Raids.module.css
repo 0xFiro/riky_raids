@@ -208,6 +208,14 @@
     font: normal normal bold 35px Noteworthy;
     color: #F79D03;
 }
+.ticketsAvailable {
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+    font: normal normal bold 24px Noteworthy;
+    color: #b00d0d;
+}
+
 
 .entriesItems {
     position: relative;

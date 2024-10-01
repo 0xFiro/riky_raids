@@ -7,10 +7,10 @@ const projectId = '9998dba6b076a8ebbf7dbba1e6d73614'
 
 const defaultChain = {
   chainId: config.chainId,
-  name: config.chainName,
+  name: config.network,
   currency: 'ETH',
-  explorerUrl: config.explorer,
-  rpcUrl: config.rpc
+  explorerUrl: config.blockExplorer,
+  rpcUrl: config.publicRpc
 }
 
 const metadata = {
@@ -22,8 +22,8 @@ const metadata = {
 
 const ethersConfig = defaultConfig({
   metadata,
-  enableEIP6963: true, 
-  enableInjected: true, 
+  enableEIP6963: true,
+  enableInjected: true,
   enableCoinbase: true,
   rpcUrl: '...',
   defaultChainId: config.chainId,
@@ -31,7 +31,7 @@ const ethersConfig = defaultConfig({
     email: false,
     socials: [],
     showWallets: true,
-    walletFeatures: true 
+    walletFeatures: true
   },
   coinbasePreference: 'all'
 })

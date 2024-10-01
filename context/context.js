@@ -7,10 +7,10 @@ const projectId = '9998dba6b076a8ebbf7dbba1e6d73614'
 
 const defaultChain = {
   chainId: config.chainId,
-  name: config.chainName,
+  name: config.network,
   currency: 'ETH',
-  explorerUrl: config.explorer,
-  rpcUrl: config.rpc
+  explorerUrl: config.blockExplorer,
+  rpcUrl: config.publicRpc
 }
 
 const metadata = {

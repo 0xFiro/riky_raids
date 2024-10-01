@@ -46,11 +46,11 @@ const Raid = ({setLoading,alert,loading}) => {
         console.log(e)
     }
 }
-
   useEffect(() => {
-    isAddress(address) && getPot(address) 
+    isAddress(address) && getPot(address)
+
   }, [address])
-  
+
 
   useEffect(() => {
     setLoading(true)

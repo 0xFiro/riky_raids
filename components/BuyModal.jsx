@@ -11,6 +11,7 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
 
     const { address } = useWeb3ModalAccount()
     const [button,setButton] = useState("Approve")
+    const [purchaseSuccess, setPurchaseSuccess] = useState(false)
     const {walletProvider} = useWeb3ModalProvider();
 
     const [twitters,setTwitters] = useState([])
@@ -28,6 +29,7 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
     }
 
     const approve = async () => {
+        setPurchaseSuccess(false)
         try{
             const provider = new BrowserProvider(walletProvider);
             const signer = await provider.getSigner()
@@ -46,17 +48,21 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
     }
 
     const buy = async () => {
+        console.log("buy")
         if(xInput === "") {
             alert("error","Twitter handle required!")
             return
         }
-        try{
+        setPurchaseSuccess(false)
+        try {
             const provider = new BrowserProvider(walletProvider);
             const signer = await provider.getSigner()
             const raidContract = new Contract(nftInfo.raidContract,ABI.raid,signer)
             const purchase = await raidContract.buyBatch(parseInt(nftInfo.id),xInput)
             setLoading(true)
-            await purchase.wait()
+           const res= await purchase.wait()
+                setPurchaseSuccess(true)
+
             } catch (e) {
                 setLoading(false)
                 alert("error",e.reason)
@@ -67,6 +73,11 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
                 setLoading(false)
             }
     }
+    useEffect(()=>{
+        if (purchaseSuccess){
+            alert("success","NFT was bought successfully")
+        }
+    },[purchaseSuccess])
 
     const getRaidSocialsAndPot = async () => {
         try{
@@ -86,7 +97,7 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
     useEffect(() => {
         isAddress(address) && getRaidSocialsAndPot() && checkApproval()
     }, [address])
-    
+
 
     return(
         <div className={buying ? styles.entriesWrap : "hidden"}>

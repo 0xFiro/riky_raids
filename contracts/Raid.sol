@@ -13,7 +13,7 @@ interface IGameMasterContract {
 }
 
 contract Raid is ReentrancyGuard, ERC1155 {
-    using Strings for uint256; 
+    using Strings for uint256;
 
     uint256 public ticketPrice;
     uint256 public endBlock;
@@ -38,11 +38,13 @@ contract Raid is ReentrancyGuard, ERC1155 {
     struct TokenInfo {
         string tokenURI;
         uint256 totalPurchasable;
+        uint256 maxPurchasable;
         uint256 tokenPrice;
     }
 
     mapping(uint256 => TicketData) public tickets;
     mapping(uint256 => uint256) public totalPurchasable;
+    mapping(uint256 => uint256) public maxPurchasable; // it is static value which set during raid creation
 
     event TicketPurchased(address indexed player, uint256 ticketNumber, string xHandle);
     event RaidEnded(address indexed winner, address loot);
@@ -67,6 +69,7 @@ contract Raid is ReentrancyGuard, ERC1155 {
         rikyToken = IERC20(0x729031B3995538DDF6B6BcE6E68D5D6fDEb3CCB5);
         for (uint i = 0; i < purchasableAmounts.length; i++) {
             totalPurchasable[i + 1] = purchasableAmounts[i];
+            maxPurchasable[i + 1] = purchasableAmounts[i];
         }
     }
 
@@ -84,7 +87,7 @@ contract Raid is ReentrancyGuard, ERC1155 {
         require(rikyToken.transferFrom(msg.sender, address(this), totalCost), "RIKY transfer failed");
 
         // Assign weight based on batch size with .5 increments
-        uint256 weight = 10 + (batchSize - 1) * 5; 
+        uint256 weight = 10 + (batchSize - 1) * 5;
 
         for (uint256 i = 0; i < batchSize; i++) {
             ticketsPurchased++;
@@ -133,7 +136,7 @@ contract Raid is ReentrancyGuard, ERC1155 {
     }
 
     function uri(uint256 tokenId) public view virtual override returns (string memory) {
-        return string(abi.encodePacked(baseUri, tokenId.toString(), ".json")); 
+        return string(abi.encodePacked(baseUri, tokenId.toString(), ".json"));
     }
 
     function getTokenInfos() public view returns (TokenInfo[5] memory) {
@@ -143,6 +146,7 @@ contract Raid is ReentrancyGuard, ERC1155 {
             infos[i - 1] = TokenInfo({
                 tokenURI: uri(i),
                 totalPurchasable: totalPurchasable[i],
+                maxPurchasable: maxPurchasable[i],
                 tokenPrice: ticketPrice * i
             });
         }

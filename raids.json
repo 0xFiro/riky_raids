@@ -1,43 +1,10 @@
 [    
-    
-    {
-            "id": 15,
-            "project": "Keren Final Round 2",
-            "stealValue": "100 Keren",
-            "collectionSize": 55,
-            "status": "Ongoing",
-            "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x174e33ef2effa0a4893d97dda5db4044cc7993a3.png?size=lg&key=e6dc6d"
-    },
-    {
-            "id": 13,
-            "project": "RIKY Final Round 2",
-            "stealValue": "10k RIKY",
-            "collectionSize": 55,
-            "status": "Ongoing",
-            "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x729031b3995538ddf6b6bce6e68d5d6fdeb3ccb5.png"
-    },
-    {
-        "id": 12,
-        "project": "RIKY Final Round",
-        "stealValue": "10k RIKY",
-        "collectionSize": 55,
-        "status": "Ongoing",
-        "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x729031b3995538ddf6b6bce6e68d5d6fdeb3ccb5.png"
-    },
-    {
-        "id": 2,
-        "project": "Based God",
-        "stealValue": "100k TYBG",
-        "collectionSize": 200,
-        "status": "Complete",
-        "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x0d97f261b1e88845184f678e2d1e7a98d9fd38de.png"
-    },
     {
         "id": 1,
-        "project": "Based Fellas",
-        "stealValue": "600k FELLA",
-        "collectionSize": 130,
-        "status": "Complete",
-        "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x122a3f185655847980639e8edf0f0f66cd91c5fe.png"
+        "project": "Keren",
+        "stealValue": "4.74M KEREN",
+        "collectionSize": 0,
+        "status": "Ongoing",
+        "imageUrl": "https://dd.dexscreener.com/ds-data/tokens/base/0x174e33ef2effa0a4893d97dda5db4044cc7993a3.png"
     }
 ]

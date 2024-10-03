@@ -71,7 +71,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
 
             const meta = await Promise.all(fetchPromises);
             setNftData(meta);
-            
+
         } catch (e) {
             console.log(e);
         }
@@ -95,7 +95,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
             setTimeout(()=> setLoading(false),1000)
         }
     };
-    
+
 
     const openBuyModal = (nftInfo,id) => {
         let tempobj = nftInfo
@@ -139,20 +139,21 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
     useEffect(() => {
         !loading && isAddress(address) && updateQty()
     }, [loading])
-    
+
 
     useEffect(() => {
         getURI()
     }, [])
-    
+
 
     return(
         <div className={buying ? "hidden" : styles.entriesWrap}>
             <div className={styles.entriesCont}>
             {endBlockTimeRemaining !== "Time's up!" &&<div className={styles.target}><div>Target -&nbsp;<div className={styles.targetValue}>{raidedAsset}</div></div><div>Ends -&nbsp;<div className={styles.targetValue}>{endBlockTimeRemaining}</div></div></div>}
                 <div className={styles.entriesItems}>
-                    {baseUri !== "" && address !== "" && nftData[0] !== 0 && endBlockTimeRemaining !== "Time's up!" ?
+                    {baseUri !== "" && address !== "" && nftData.length>0 && endBlockTimeRemaining !== "Time's up!" ?
                         nftAmount.map((e,index)=>{
+
                             const match = nftData[index];
                             let tempOBJ = match
                             tempOBJ.raidContract = address
@@ -168,7 +169,7 @@ const Entries = ({setLoading,raidId,setBuyInfo,setBuying,alert,buying,loading,ra
                             </div>
                             )
                           }) :
-                    baseUri !== "" && address !== "" && nftData[0] !== 0 && endBlockTimeRemaining === "Time's up!" ? 
+                    baseUri !== "" && address !== "" && nftData[0] !== 0 && endBlockTimeRemaining === "Time's up!" ?
                     <GameOver setLoading={setLoading} loot={loot} nftData={nftData} alert={alert} raidedAsset={raidedAsset} raidAddress={address} /> : null
                     }
                     <div className={styles.break}></div>

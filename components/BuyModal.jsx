@@ -56,7 +56,9 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
             const raidContract = new Contract(nftInfo.raidContract,ABI.raid,signer)
             const purchase = await raidContract.buyBatch(parseInt(nftInfo.id),xInput)
             setLoading(true)
-            await purchase.wait()
+            purchase.wait()
+                setPurchaseSuccess(true)
+
             } catch (e) {
                 setLoading(false)
                 alert("error",e.reason)
@@ -86,7 +88,7 @@ const BuyModal = ({nftInfo,setBuying,buying,alert,setLoading,raidedAsset,lootAss
     useEffect(() => {
         isAddress(address) && getRaidSocialsAndPot() && checkApproval()
     }, [address])
-    
+
 
     return(
         <div className={buying ? styles.entriesWrap : "hidden"}>

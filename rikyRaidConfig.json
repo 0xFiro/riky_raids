@@ -1,6 +1,6 @@
 {
     "rikyAddress"           :   "0x729031B3995538DDF6B6BcE6E68D5D6fDEb3CCB5",
-    "raidMaster"            :   "0xc933c49B198dEEB58EC9411ae91B704599c39a5f",
+    "raidMaster"            :   "0x1BE6ae35E15318FA4456859A37b73a104b42E220",
     "network"               :   "base",
     "publicRpc"             :   "https://mainnet.base.org/",
     "chainId"               :   8453,
